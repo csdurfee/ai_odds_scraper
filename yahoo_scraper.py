@@ -1,36 +1,6 @@
 from pydantic import BaseModel, Field
 from scrapegraph_py import ScrapeGraphAI
 
-"""
-{
-  "team1": "San Antonio Spurs",
-  "team2": "New York Knicks",
-  "spread": {
-    "San Antonio Spurs": "+2.5",
-    "New York Knicks": "-2.5",
-    "percent_of_bets": {
-      "San Antonio Spurs": "33.47%",
-      "New York Knicks": "66.53%"
-    }
-  },
-  "total": {
-    "line": "216.5",
-    "over_under_percent_of_bets": {
-      "over": "84.07%",
-      "under": "15.93%"
-    }
-  },
-  "money_line": {
-    "San Antonio Spurs": "+115",
-    "New York Knicks": "-136",
-    "percent_of_bets": {
-      "San Antonio Spurs": "37.54%",
-      "New York Knicks": "62.46%"
-    }
-  }
-}
-"""
-
 class Spread(BaseModel):
     team1_spread: float = Field(description="Spread for team 1")
     team2_spread: float = Field(description="Spread for team 2")
@@ -79,9 +49,10 @@ SAMPLE_URL = "https://sports.yahoo.com/nba/new-york-knicks-san-antonio-spurs-202
 
 SAMPLE_URL = "https://sports.yahoo.com/nba/oklahoma-city-thunder-san-antonio-spurs-2026052824/?section=odds"
 
+SAMPLE_URL = "https://sports.yahoo.com/nba/cleveland-cavaliers-new-york-knicks-2026051918/?section=odds"
+
 SAMPLE_URL = "https://sports.yahoo.com/nba/new-york-knicks-cleveland-cavaliers-2026052305/?section=odds"
 
-SAMPLE_URL = "https://sports.yahoo.com/nba/cleveland-cavaliers-new-york-knicks-2026051918/?section=odds"
 
 res = sgai.extract(
     "Extract betting data",
