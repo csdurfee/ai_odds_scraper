@@ -1,0 +1,1 @@
+Extract odds data, including spread, total and money line for both teams, and \"% of bets\" for spread, total and moneyline.
