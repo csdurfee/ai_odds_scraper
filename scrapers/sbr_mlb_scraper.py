@@ -26,8 +26,6 @@ class SportsbookOdds(BaseModel):
     team2_odds: int = Field(description="Odds for team 2")
 
 class MLBGame(BaseModel):
-    # this doesn't work for some games, probably bc context window
-    #game_date: str = Field(description="Date of the game")
     game_time: str = Field(description="Time of the game")
 
     team1_name: str = Field(description="3 letter name of team 1")
@@ -42,8 +40,8 @@ class MLBGame(BaseModel):
     team1_pitcher_hand: Handedness = Field(description="Handedness for starting pitcher for team 1")
     team2_pitcher_hand: Handedness = Field(description="Handedness for starting pitcher for team 2")
 
-    team1_percent_wagers: float = Field(description="Percent wagers on team 1")
-    team2_percent_wagers: float = Field(description="Percent wagers on team 2")
+    team1_percent_wagers: float | None = Field(description="Percent wagers on team 1")
+    team2_percent_wagers: float | None = Field(description="Percent wagers on team 2")
     
     team1_opener_odds: int = Field(description="Opener odds for team 1")
     team2_opener_odds: int = Field(description="Opener odds for team 2")
