@@ -22,14 +22,14 @@ class Handedness(str, Enum):
 class SportsbookOdds(BaseModel):
     name: Sportsbook = Field(description="Name of sportsbook")
 
-    team1_odds: int = Field(description="Odds for team 1")
-    team2_odds: int = Field(description="Odds for team 2")
+    team1_odds: int | None = Field(description="Odds for team 1")
+    team2_odds: int | None = Field(description="Odds for team 2")
 
 class MLBGame(BaseModel):
     game_time: str = Field(description="Time of the game")
 
-    team1_name: str = Field(description="3 letter name of team 1")
-    team2_name: str = Field(description="3 letter name of team 2")
+    team1_name: str = Field(description="2 or 3 letter name of team 1")
+    team2_name: str = Field(description="2 or 3 letter name of team 2")
 
     team1_score: int | None = Field(description="Score for team 1")
     team2_score: int | None = Field(description="Score for team 2")
