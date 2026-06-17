@@ -62,14 +62,18 @@ class Games(BaseModel):
     games: list[Game]
 
 ####################
-api_key = None
-with open(".scrapegraph_api_key", "r") as f:
-    api_key = f.read().strip()
+if __name__ == '__main__':
+    api_key = None
+    with open(".scrapegraph_api_key", "r") as f:
+        api_key = f.read().strip()
 
-sgai = ScrapeGraphAI(api_key=api_key)
+    sgai = ScrapeGraphAI(api_key=api_key)
 
-res = sgai.extract(
-    "Extract betting data",
-    url=SAMPLE_URL,
-    schema=Games.model_json_schema(),
-)
+    ### quick test
+
+
+    res = sgai.extract(
+        "Extract betting data",
+        url=SAMPLE_URL,
+        schema=Games.model_json_schema(),
+    )

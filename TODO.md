@@ -1,6 +1,12 @@
 # TODOs
 
-## Top priority
+# TOP PRIORITIES
+
+* experiment with pruning down the DOM
+* look at ScriptCreatorGraph; try to generate python script for better determinism.
+* see if it can run locally with pruned HTML (explore-pruning.ipynb)
+
+## 2nd priority
 * figure out the issue with SBR MLB on `2026-04-01` and `2026-04-04`
 * delete any days with nonsensical results for SBR, re-spider
 

@@ -56,27 +56,28 @@ class MLBGames(BaseModel):
 
 SAMPLE_URL = "https://www.sportsbookreview.com/betting-odds/mlb-baseball/?date=2026-06-03"
 
-api_key = None
-with open(".scrapegraph_api_key", "r") as f:
-    api_key = f.read().strip()
+if __name__ == '__main__':
+    api_key = None
+    with open(".scrapegraph_api_key", "r") as f:
+        api_key = f.read().strip()
 
-sgai = ScrapeGraphAI(api_key=api_key)
+    sgai = ScrapeGraphAI(api_key=api_key)
 
-def extract(url=SAMPLE_URL):
-    res = sgai.extract(
-        "Extract betting data",
-        url=url,
-        schema=MLBGames.model_json_schema(),
-    )
-    return res
+    def extract(url=SAMPLE_URL):
+        res = sgai.extract(
+            "Extract betting data",
+            url=url,
+            schema=MLBGames.model_json_schema(),
+        )
+        return res
 
-CREDITS_PER_SEARCH = 5
+    CREDITS_PER_SEARCH = 5
 
-def get_remaining():
-    credits = sgai.credits()
-    return credits.data.remaining
+    def get_remaining():
+        credits = sgai.credits()
+        return credits.data.remaining
 
-def has_credits():
-    if get_remaining() > CREDITS_PER_SEARCH:
-        return True
-    return False
+    def has_credits():
+        if get_remaining() > CREDITS_PER_SEARCH:
+            return True
+        return False
